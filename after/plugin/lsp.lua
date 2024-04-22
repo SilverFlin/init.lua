@@ -2,11 +2,15 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 lsp.ensure_installed({
   'tsserver',
   'eslint',
   'lua_ls',
-  'gopls'
+  'gopls',
+  'marksman',
+  'volar'
+  
 })
 
 -- Fix Undefined global 'vim'
@@ -60,6 +64,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "<leader>fa", function() vim.lsp.buf.format() end, opts)
 end)
 
 lsp.setup()
