@@ -9,13 +9,19 @@ lsp.ensure_installed({
     'lua_ls',
     'gopls',
     'marksman',
-    'volar'
+    'dockerls',
+    'docker_compose_language_service',
+    'volar',
+    'dotls',
+    'html',
+    'cssls',
+    'prettier',
 })
 
 -- https://theosteiner.de/using-volars-takeover-mode-in-neovims-native-lsp-client
 require("mason").setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { "volar", "tsserver" }
+    ensure_installed = { "volar", "tsserver" },
 })
 local lspconfig = require('lspconfig')
 
